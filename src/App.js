@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
+import Person from './Person/Person';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+
         <h2>I Am a React App!</h2>
+        <p>This is really working!</p>
+        <button>Switch Name</button>
+        <Person name="Brandon" age="28"/>
+        <Person name="Manu" age="40">My Hobbies: Racing</Person>
+        <Person name="Stephanie" age="26" />
       </div>
     );
+
+  // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
