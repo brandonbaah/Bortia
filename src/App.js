@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Validation from './Validation/Validation';
+
 
 class App extends Component {
   state = {
@@ -9,7 +11,8 @@ class App extends Component {
       {id: 'd2', name: 'Manu', age: 40},
       {id: 'd3', name: 'Stephanie', age: 26},
     ],
-    showPersons: false
+    showPersons: false,
+    userInput: ''
 
   }
 
@@ -18,6 +21,10 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
+  }
+
+  inputChangedHandler = (event) => {
+    this.setState({userInput: event.target.value});
   }
 
   nameChangedHandler = (event, id) => {
@@ -79,6 +86,11 @@ class App extends Component {
         <p>This is really working!</p>
         <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
+        <hr/>
+        <input onChange={this.inputChangedHandler} value={this.state.userInput}/>
+        <p>{this.state.userInput}</p>
+        <Validation inputLength={this.state.userInput.length} />
+
       </div>
     );
 
